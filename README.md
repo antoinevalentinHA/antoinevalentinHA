@@ -8,14 +8,19 @@ The rest of this account is what that system needs in order to run.
 
 ---
 
-## Tooling built around Arsenal
+## The archive, used daily
+
+A system that changes every day needs a record of what it was yesterday. Two pieces run on my NAS and are part of the daily routine, not accessories:
+
+- **[ha-state-archive](https://github.com/antoinevalentinHA/ha-state-archive)** — structured archival of the configuration: state versioning, automated auditing, integrity checks.
+- **[ha-archive-search](https://github.com/antoinevalentinHA/ha-archive-search)** — the search engine over those archives, on the infrastructure side. When a domain behaves oddly, this is where the answer usually is.
+
+## Tooling around Arsenal
 
 | Repository | What it does |
 |---|---|
-| [ha-state-archive](https://github.com/antoinevalentinHA/ha-state-archive) | Structured archival of Home Assistant versions — state versioning, automated auditing, configuration integrity. |
-| [ha-archive-search](https://github.com/antoinevalentinHA/ha-archive-search) | Infrastructure-side search engine over those archives. |
+| [rainbird-esp32-elegoo](https://github.com/antoinevalentinHA/rainbird-esp32-elegoo) | The firmware in service on my irrigation bridge: an ELEGOO ESP32 WROOM-32 board linking Rain Bird battery-powered BLE controllers to MQTT, with OTA updates. Derived from [rainbird-esp32](https://github.com/antoinevalentinHA/rainbird-esp32), which is the upstream fork it grew out of. |
 | [ha-termux-tools](https://github.com/antoinevalentinHA/ha-termux-tools) | Inspecting and grepping the configuration from Android, via Termux. |
-| [rainbird-esp32](https://github.com/antoinevalentinHA/rainbird-esp32) · [rainbird-esp32-elegoo](https://github.com/antoinevalentinHA/rainbird-esp32-elegoo) | ESP32 firmware bridging Rain Bird battery-powered BLE controllers to MQTT, with OTA updates. The second is an ELEGOO WROOM-32 board variant. |
 
 ## Integrations my installation loads
 
@@ -32,14 +37,9 @@ These four forks are not scratch copies: Arsenal runs on them. They are pinned, 
 
 [audi_connect_ha](https://github.com/antoinevalentinHA/audi_connect_ha) — I contribute to the integration itself rather than run my own version of it: my fork exists to carry `fix/*` branches (transient 403/502 handling, auth guards, FR translation) toward upstream, and my installation stays on the official release.
 
-## Patterns published from Arsenal
+## Earlier pieces
 
-Extracted from the running system and published as-is, for whoever finds them useful. They are stable rather than active — they document an approach, they are not products.
-
-- [ha-heating-decision-engine](https://github.com/antoinevalentinHA/ha-heating-decision-engine) — centralized heating decisions: strict priority, abstention, anti-bounce.
-- [ha-mobile-notification-architecture](https://github.com/antoinevalentinHA/ha-mobile-notification-architecture) — decoupling automations from mobile devices.
-- [ha-self-parametrized-template-sensors](https://github.com/antoinevalentinHA/ha-self-parametrized-template-sensors) — write the template logic once, reuse it across many entities.
-- [ha-automation-id-generator](https://github.com/antoinevalentinHA/ha-automation-id-generator) — next available automation ID, no custom integration required.
+A handful of small repositories date from before Arsenal was public: single patterns pulled out of the running system — a heating decision engine, a notification architecture, self-parametrized template sensors, an automation ID generator. They are left online because they still answer questions people ask, but they are early work and stand on their own only modestly.
 
 ## Outside all of this
 
